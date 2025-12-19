@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include<ctype.h>   //For isdigit()
+#include <stdlib.h>  // For Clear Screen >> system("cls");
+
 int main(){
 
     printf("\n");
@@ -10,18 +12,21 @@ int main(){
     printf("\n");
     
     char choice;
-    do{
+    while(1){
+
         while(1){
-            
+        
             printf("====================\n");
             printf("Please Select an Option:-\n");
             printf("1. Without Arrival Time.\n");
             printf("2. With Arrival Time.\n");
-            printf("Input(1-2) : ");
+            printf("3. Exit.\n");
+            printf("Input(1-3) : ");
             scanf(" %c", &choice);   //The blank space before the %c is there for a reason. When scanf takes an input char from the user, there is also a \n buffer because of which the invalid_____ message prints twice.
             
             if(!isdigit(choice)){
                 
+                system("cls");
                 printf("Invalid Input. Please Try Again\n");
             }
             else{
@@ -29,29 +34,34 @@ int main(){
                 break;
             }
         }
+
         if(choice == '1'){     //<<<<<<<<<<<<<<<<Option 1>>>>>>>>>>>>>>>>>>
             
-            printf("===========ROUND ROBIN ALGORITHM WITHOUT ARRIVAL TIME=========\n");
+            system("cls");
+            printf("<<<<<<<<<<<<<<<ROUND ROBIN ALGORITHM WITHOUT ARRIVAL TIME>>>>>>>>>>>>>>\n");
 
             //---------------Number of Processes---------------
 
-            printf("===========Number of Processes=========\n");
             int pN,maxProcesses = 20;
             while(1){
-
+                
+                printf("===========Number of Processes=========\n");
                 printf("Enter the Number of Processes(Max : %d) : ", maxProcesses);
                 scanf("%d", &pN);
 
                 if(pN > maxProcesses){       //To set process limit
                     
+                    system("cls");
                     printf("Maximum Process limit is %d.Try Again.\n", maxProcesses);
                 }
                 else if(pN < 0){
 
+                    system("cls");
                     printf("Number of processes must be in positive.\n");
                 }
                 else{
 
+                    system("cls");
                     break;
                 }
             }
@@ -63,23 +73,54 @@ int main(){
             printf("===========Burst Time=========\n");
             for(int i=0; i<pN; i++){
 
-                printf("----------Process # %d----------\n", i+1);
-                printf("Enter the burst time  of P%d: ", i+1);
-                scanf("%d", &burstTime[i]);
-                remainingTime[i] = burstTime[i];
+                while(1){     //Just in case if someone inputs burst time in negative.
+
+                    printf("----------Process # %d----------\n", i+1);
+                    printf("Enter the burst time  of P%d: ", i+1);
+                    scanf("%d", &burstTime[i]);
+                    remainingTime[i] = burstTime[i];
+
+                    if(burstTime[i] < 0){
+
+                        system("cls");
+                        printf("Burst Time must be >= 0. Try Again.\n");
+                    }
+                    else{
+                        
+                        system("cls");
+                        break;
+                    }
+                }
             }
     
             //---------------Quantum Time---------------
 
-            printf("===========Quantum Time=========\n");
             int quantumT;
-            printf("Enter the Quantum Time : ");
-            scanf("%d", &quantumT);
+            while(1){
+
+                printf("===========Quantum Time=========\n");
+                printf("Enter the Quantum Time : ");
+                scanf("%d", &quantumT);
+
+                if(quantumT <= 0){
+
+                    system("cls");
+                    printf("Quantum Time must be greater than 0. Try Again.\n");
+                }
+                else{
+
+                    system("cls");
+                    break;
+                }
+            }
             
             //---------------Table---------------
 
+            printf("NUMBER OF PROCESSES : %d\n", pN);
+            printf("QUANTUM TIME : %d\n", quantumT);
             printf("===========Table=========\n");
             printf("Process \t BurstTime\n");
+
             for(int i=0; i<pN; i++){
                 
                 printf("P%d \t\t %d\n", i+1, burstTime[i]);
@@ -145,13 +186,19 @@ int main(){
         }
         else if(choice == '2'){    //<<<<<<<<<<<<<<<<Option 2>>>>>>>>>>>>>>>>>>
             
+            printf("Work In Progress.\n");
+        }
+        else if(choice == '3'){    //<<<<<<<<<<<<<<<<Option 3>>>>>>>>>>>>>>>>>>
+            
+            break;
         }
         else{       //<<<<<<<<<<<<<<<<Invalid Option>>>>>>>>>>>>>>>>>>
 
+            system("cls");
             printf("Invalid Choice. Try Again.\n");
         }
         
-    }while(choice!=1 && choice!=2);
+    }
 
     return 0;
 }
