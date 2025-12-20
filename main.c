@@ -142,7 +142,7 @@ int main(){
 
                 if(remainingTime[processIndex] == 0){
 
-                    continue;  // Skip to next process
+                    continue;  // Skips to the next process
                 }
 
                 if(remainingTime[processIndex]<quantumT){
@@ -185,7 +185,7 @@ int main(){
             printf("===========Average Waiting & TurnAround Time=========\n");
 
             printf("Total turnaround Time : %f\n", totalTAT);
-            printf("Total Waiting Time : %f\n\n", totalWT/pN);
+            printf("Total Waiting Time : %f\n\n", totalWT);
             printf("Average turnaround Time : %f\n", totalTAT/pN);
             printf("Average Waiting Time : %f\n", totalWT/pN);
         }
@@ -325,6 +325,7 @@ int main(){
 
                 if(foundProcess == 0){
 
+                    printf("IDLE    || I.T : %d-%d    || R.T : --\n", currentTime,currentTime+1);
                     currentTime++;
                 }
             }
@@ -346,8 +347,8 @@ int main(){
 
             printf("===========Average Waiting & TurnAround Time=========\n");
             printf("Total turnaround Time : %f\n", totalTAT);
-            printf("Total Waiting Time : %f\n\n", totalWT/pN);
-            
+            printf("Total Waiting Time : %f\n\n", totalWT);
+
             printf("Average turnaround Time : %f\n", totalTAT/pN);
             printf("Average Waiting Time : %f\n", totalWT/pN);
         }
