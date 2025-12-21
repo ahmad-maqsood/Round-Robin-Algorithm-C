@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<ctype.h>   //For isdigit()
-#include <stdlib.h>  // For Clear Screen >> system("cls");
+#include<stdlib.h>  // For Clear Screen >> system("cls");
 
 int main(){
 
@@ -226,9 +226,9 @@ int main(){
             //Variables
             int burstTime[pN], remainingTime[pN], turnAroundTime[pN] , waitingTime[pN], arrivalTime[pN];
 
-            //---------------Burst Time---------------
+            //---------------Burst Time & Arrival Time---------------
 
-            printf("===========Burst Time=========\n");
+            printf("===========Burst Time & Arrival Time=========\n");
             for(int i=0; i<pN; i++){
 
                 while(1){     //Just in case if someone inputs burst time in negative.
@@ -280,14 +280,15 @@ int main(){
 
             printf("NUMBER OF PROCESSES : %d\n", pN);
             printf("QUANTUM TIME : %d\n", quantumT);
-            printf("====================Table==================\n");
-            printf("Process \t BurstTime \t ArrivalTime\n");
 
+            printf("====================Table==================\n");
+            
+            printf("Process \t BurstTime \t ArrivalTime\n");
             for(int i=0; i<pN; i++){
                 
                 printf("P%d \t\t %d \t\t %d\n", i+1, burstTime[i], arrivalTime[i]);
             }
-
+            
             //---------------Gant Chart---------------
 
             printf("====================Gant Chart==================\n");
