@@ -222,7 +222,7 @@ int main(){
             }
 
             //Variables
-            int burstTime[pN], remainingTime[pN], turnAroundTime[pN] , waitingTime[pN], arrivalTime[pN];
+            int burstTime[pN], remainingTime[pN], turnAroundTime[pN] , waitingTime[pN], arrivalTime[pN], processOrder[pN];
 
             //---------------Burst Time & Arrival Time---------------
 
@@ -239,6 +239,7 @@ int main(){
 
                     remainingTime[i] = burstTime[i];
                     turnAroundTime[i] = 0;
+                    processOrder[i] = i;
 
                     if(burstTime[i] <= 0){
 
@@ -254,6 +255,35 @@ int main(){
                         
                         system("cls");
                         break;
+                    }
+                }
+            }
+
+            //---------------Sort by Arrival Time---------------
+            
+            for(int i=0; i<pN-1; i++){
+
+                for(int j=0; j<pN-i-1; j++){
+
+                    if(arrivalTime[j] > arrivalTime[j+1]){
+                    
+                        int temp;
+
+                        temp = arrivalTime[j];
+                        arrivalTime[j] = arrivalTime[j+1];
+                        arrivalTime[j+1] = temp;
+
+                        temp = burstTime[j];
+                        burstTime[j] = burstTime[j+1];
+                        burstTime[j+1] = temp;
+
+                        temp = remainingTime[j];
+                        remainingTime[j] = remainingTime[j+1];
+                        remainingTime[j+1] = temp;
+
+                        temp = processOrder[j];
+                        processOrder[j] = processOrder[j+1];
+                        processOrder[j+1] = temp;
                     }
                 }
             }
