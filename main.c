@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<ctype.h>   //For isdigit()
 #include<stdlib.h>  // For Clear Screen >> system("cls");
 
 int main(){
@@ -24,14 +23,14 @@ int main(){
             printf("Input(1-3) : ");
             scanf(" %c", &choice);   //The blank space before the %c is there for a reason. When scanf takes an input char from the user, there is also a \n buffer because of which the invalid_____ message prints twice.
             
-            if(!isdigit(choice)){
-                
-                system("cls");
-                printf("Invalid Input. Please Try Again\n");
+            if(choice == '1' || choice == '2' || choice == '3'){
+
+                break;
             }
             else{
 
-                break;
+                system("cls");
+                printf("Invalid Choice. Try Again.\n");
             }
         }
 
@@ -56,10 +55,10 @@ int main(){
                     system("cls");
                     printf("Maximum Process limit is %d.Try Again.\n", maxProcesses);
                 }
-                else if(pN < 0){
+                else if(pN <= 0){
 
                     system("cls");
-                    printf("Number of processes must be in positive.\n");
+                    printf("Number of processes must be greater than 0.\n");
                 }
                 else{
 
@@ -85,10 +84,10 @@ int main(){
                     remainingTime[i] = burstTime[i];
                     turnAroundTime[i] = 0;
 
-                    if(burstTime[i] < 0){
+                    if(burstTime[i] <= 0){
 
                         system("cls");
-                        printf("Burst Time must be >= 0. Try Again.\n");
+                        printf("Burst Time must be greater than 0. Try Again.\n");
                     }
                     else{
                         
@@ -134,8 +133,7 @@ int main(){
             //---------------Gant Chart---------------
 
             printf("====================Gant Chart==================\n");
-            int processIndex = -1, currentTime = 0 , execTime = 0, completedProcess = 0;  
-
+            int processIndex = -1, currentTime = 0 , execTime = 0, completedProcess = 0;
             while(completedProcess < pN){        //For Gant Chart
 
                 processIndex = (processIndex + 1) % pN;
@@ -211,10 +209,10 @@ int main(){
                     system("cls");
                     printf("Maximum Process limit is %d.Try Again.\n", maxProcesses);
                 }
-                else if(pN < 0){
+                else if(pN <= 0){
 
                     system("cls");
-                    printf("Number of processes must be in positive.\n");
+                    printf("Number of processes must be greater than 0.\n");
                 }
                 else{
 
@@ -242,10 +240,15 @@ int main(){
                     remainingTime[i] = burstTime[i];
                     turnAroundTime[i] = 0;
 
-                    if(burstTime[i] < 0 || arrivalTime[i] < 0){
+                    if(burstTime[i] <= 0){
 
                         system("cls");
-                        printf("Burst Time and Arrival Time must be >= 0. Try Again.\n");
+                        printf("Burst Time must be greater than 0. Try Again.\n");
+                    }
+                    else if(arrivalTime[i] < 0){
+
+                        system("cls");
+                        printf("Arrival Time must be >= 0. Try Again.\n");
                     }
                     else{
                         
@@ -362,12 +365,6 @@ int main(){
             printf("\n<<<<<<<<<<<<<<<Ending the Program>>>>>>>>>>>>>>\n\n");
             break;
         }
-        else{       //<<<<<<<<<<<<<<<<Invalid Option>>>>>>>>>>>>>>>>>>
-
-            system("cls");
-            printf("Invalid Choice. Try Again.\n");
-        }
-        
     }
 
     return 0;
