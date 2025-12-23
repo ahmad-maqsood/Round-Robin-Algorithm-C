@@ -261,9 +261,9 @@ int main(){
 
             //---------------Sort by Arrival Time---------------
             
-            for(int i=0; i<pN-1; i++){
+            for(int i=0; i<pN; i++){
 
-                for(int j=0; j<pN-i-1; j++){
+                for(int j=0; j<pN-1; j++){
 
                     if(arrivalTime[j] > arrivalTime[j+1]){
                     
