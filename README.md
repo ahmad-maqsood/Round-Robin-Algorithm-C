@@ -49,7 +49,7 @@ This repository contains a **C program** that implements the **Round-Robin (RR) 
 
 ## How to Run
 
-1. Clone the repository:
+1. Clone the repository(or download the file):
 
 git clone https://github.com/ahmad-maqsood/Round-Robin-Algorithm-C.git 
 
