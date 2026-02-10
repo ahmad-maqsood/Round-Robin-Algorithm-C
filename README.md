@@ -63,38 +63,4 @@ gcc round_robin.c -o round_robin
 
 ---
 
-# Sample Output
-
-=============================
-Please Select an Option:-
-1. Without Arrival Time.
-2. With Arrival Time.
-3. End the Program.
-Input(1-3) : 1
-
-===========Number of Processes=========
-Enter the Number of Processes(Max : 20) : 3
-
-===========Burst Time=========
-Process #1: 5
-Process #2: 3
-Process #3: 8
-
-===========Quantum Time=========
-Enter the Quantum Time : 2
-
-====================Table==================
-Process     BurstTime
-P1          5
-P2          3
-P3          8
-
-====================Gantt Chart==================
-P1    || I.T : 0-2    || R.T : 3
-P2    || I.T : 2-4    || R.T : 1
-P3    || I.T : 4-6    || R.T : 6
-...
-
----
-
 *Note: This code is optimized for Windows environments (uses `system("cls")` for UI).*
